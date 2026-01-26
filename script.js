@@ -9,7 +9,7 @@ aboutMe.innerHTML = `
 <div>
   <p><mark>August Foreman</mark> is a multidisciplinary creative, who specializes in logo design, typography, and broadcast media, actively exploring Frontend development and storytelling through art and motion.</p>
   <p>His experience spans print and digital media, with a focus on entertainment, music, streetwear, visual arts, and cultural institutions. Creativity doesn’t exist in isolation. View his portfolio or connect for more.</p>
-  </div>
+</div>
 <p>&copy;2025 AUG SVCS, LLC. All rights protected by my lord and savior. (\u00A0Imprint: Site <a data-title="Developer" href="https://madebyaug.com">MadeByAug</a>, deployed on <a data-title="CMS" href="https://github.com/madebyaug/2025.AUG-TempPort">GitHub</a>, and Typeset in <a data-title="Typography" href="https://www.schick-toikka.com/dia">Dia Regular</a>.\u00A0)</p>
 `;
 
@@ -65,7 +65,7 @@ window.onload = () => {
     setTimeout(() => {
       element.style.filter = `blur(0px)`;
       element.style.removeProperty("filter");
-    }, 100);
+    }, 300);
 
     setTimeout(() => {
       element.style.marginLeft = `0`;
@@ -73,9 +73,17 @@ window.onload = () => {
   });
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  mediaAll.forEach((element) => {
+    element.style.filter = `blur(5px)`;
+    // element.style.marginLeft = `-1400px`;
+    element.style.transition = `filter 1s ease, margin-left 10s ease`;
+  });
+});
+
 // Stores Title and Default Title
 let storedTitle = "";
-let defaultTitle = `Media –All: ${mediaAll.length} Fetched`;
+let defaultTitle = `Media All: ${mediaAll.length} Fetched`;
 document.getElementById("defaultTitle").textContent = defaultTitle;
 
 // Defines Title displays Location
@@ -83,8 +91,8 @@ const titleDisplay = document.getElementById("projectTitle");
 titleDisplay.textContent = defaultTitle;
 
 // Quote Arry
-const quoteArry = [
-  `Quality ain’t rushed. It’s Practiced.`,
+const memoArry = [
+  `Progress ain’t rushed. It’s Practiced.`,
   `Persuaded by a dream to be immortalized through art.`,
   `A burnt bridge keeps the food warm.`,
   `Simplicity = Innovation`,
@@ -93,7 +101,7 @@ const quoteArry = [
   `The most convincing lies are the ones we tell ourself.`,
   `Never conform, always adapt.`,
   `Curate: Cultivate your vision.`,
-  `A tragic story’s end bred pure carelessness.`,
+  `A tragic story’s end bred pure carelessness.`, // Needs work
   `A creative who never pushes boundaries will keep telling the same stories.`,
   `The world may take your reputation — not your character.`,
   `Pride > Humility.`,
@@ -102,12 +110,12 @@ const quoteArry = [
 ];
 
 // Rng Message Selector
-const rngIndex = Math.floor(Math.random() * quoteArry.length);
+const rngIndex = Math.floor(Math.random() * memoArry.length);
 
 // Defines Quotes
-const $quotes = document.getElementById("quotes");
-$quotes.innerHTML = `
-  <p>( QUOTE ) “${quoteArry[rngIndex]}”</p>
+const $memo = document.getElementById("memo");
+$memo.innerHTML = `
+  <p>( Memo ) “${memoArry[rngIndex]}”</p>
   <h1>[\u00A0&rarr;\u00A0&rarr;\u00A0]</h1>
 `;
 
@@ -132,7 +140,7 @@ getTitle.forEach((media) => {
 
   // At rest, display "Default Title" ie default behavior.
   media.addEventListener("mouseout", () => {
-    // titleDisplay.textContent = quoteArry[rngIndex];
+    // titleDisplay.textContent = memoArry[rngIndex];
     titleDisplay.textContent = defaultTitle;
     storedTitle = "";
   });
@@ -178,14 +186,6 @@ window.addEventListener("resize", setLayoutWidth);
 
 // Defines "footer" default width
 $footer.style.marginLeft = `-${width}`;
-
-document.addEventListener("DOMContentLoaded", () => {
-  mediaAll.forEach((element) => {
-    element.style.filter = `blur(5px)`;
-    // element.style.marginLeft = `-1400px`;
-    element.style.transition = `filter 1s ease, margin-left 10s ease`;
-  });
-});
 
 // Defines "aboutMeBtn" click
 aboutMeBtn.addEventListener("click", () => {

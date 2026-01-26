@@ -1,1 +1,3 @@
-In May 2025, I made the choice to develop a temporary website that highlights my previous projects and future endeavors in preparation for my new site.
+# Revised Website
+
+In May 2025, I made the choice to develop a <del>temporary</del> <ins>new</ins> website to highlight things learned from my 8-month bootcamp course @FullStack. It showcases imagery from past projects and campaigns in preparation for future endeavors.
